@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Documentation Assistant</title>
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>API Documentation Assistant</h1>
+            <p>Ask questions about the PYMPL2 Python3 API</p>
+        </header>
+        
+        <main>
+            <div class="query-container">
+                <form id="query-form">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="query-input" 
+                            placeholder="Ask a question about the API..." 
+                            required
+                        >
+                        <button type="submit">Ask</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="results-container">
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Searching documentation...</p>
+                </div>
+                
+                <div id="answer-container" class="hidden">
+                    <h2>Answer</h2>
+                    <div id="answer" class="answer"></div>
+                </div>
+                
+                <div id="sources-container" class="hidden">
+                    <h2>Sources</h2>
+                    <div id="sources" class="sources"></div>
+                </div>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Powered by OpenAI and FAISS</p>
+        </footer>
+    </div>
+    
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

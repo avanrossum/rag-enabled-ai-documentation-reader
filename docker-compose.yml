@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./app:/app/app
+      - ./PYMPL2-PYTHON3_API_DOCUMENTATION:/app/docs
+      - ./scripts:/app/scripts
+      - ./vector_db:/app/vector_db
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - EMBEDDING_MODEL=text-embedding-3-small
+      - COMPLETION_MODEL=gpt-4o
+      - DOCS_DIR=/app/docs
+      - VECTOR_DB_PATH=/app/vector_db
+      - SKIP_VECTORIZATION=false
+    restart: unless-stopped
