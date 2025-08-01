@@ -15,7 +15,7 @@ def vectorize_documentation():
     Vectorize all Markdown files in the documentation directory.
     """
     # Get the documentation directory from environment variables
-    docs_dir = os.getenv("DOCS_DIR", "./PYMPL2-PYTHON3_API_DOCUMENTATION")
+    docs_dir = os.getenv("DOCS_DIR", "./DOCUMENTATION")
     
     print(f"Vectorizing documentation in {docs_dir}...")
     

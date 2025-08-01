@@ -1,6 +1,7 @@
 import os
 import markdown
 from fastapi import FastAPI, Request, HTTPException
+from typing import Optional
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.middleware.cors import CORSMiddleware
@@ -37,7 +38,9 @@ app.include_router(api_router, prefix="/api")
 # Root endpoint - serve the frontend
 @app.get("/")
 async def root(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    # Get API title from environment variable or use default
+    api_title = os.getenv("API_TITLE", "PYMPL2 Python3 API")
+    return templates.TemplateResponse("index.html", {"request": request, "api_title": api_title})
 
 # Health check endpoint
 @app.get("/health")
@@ -58,7 +61,9 @@ async def metadata():
 @app.get("/docs/{file_path:path}", response_class=HTMLResponse)
 async def view_markdown(request: Request, file_path: str):
     # Get the documentation directory from environment variables
-    docs_dir = os.getenv("DOCS_DIR", "./PYMPL2-PYTHON3_API_DOCUMENTATION")
+    docs_dir = os.getenv("DOCS_DIR", "./DOCUMENTATION")
+    # Get API title from environment variable or use default
+    api_title = os.getenv("API_TITLE", "PYMPL2 Python3 API")
     
     # Construct the full file path
     full_path = os.path.join(docs_dir, file_path)
@@ -144,7 +149,7 @@ async def view_markdown(request: Request, file_path: str):
             <div class="container">
                 <header>
                     <h1>API Documentation Assistant</h1>
-                    <p>Viewing: {file_path}</p>
+                    <p>Viewing {api_title} documentation: {file_path}</p>
                 </header>
                 
                 <a href="/" class="back-button">Back to Search</a>

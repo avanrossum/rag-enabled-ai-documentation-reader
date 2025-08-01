@@ -80,8 +80,9 @@ The application can be configured using environment variables:
 - `OPENAI_API_KEY`: Your OpenAI API key
 - `EMBEDDING_MODEL`: The OpenAI embedding model to use (default: text-embedding-3-small)
 - `COMPLETION_MODEL`: The OpenAI completion model to use (default: gpt-4o)
-- `DOCS_DIR`: The directory containing the documentation (default: ./PYMPL2-PYTHON3_API_DOCUMENTATION)
+- `DOCS_DIR`: The directory containing the documentation, used for both host path and container path (default: ./DOCUMENTATION)
 - `VECTOR_DB_PATH`: The directory to store the vector database (default: ./vector_db)
+- `API_TITLE`: The title of the API displayed in the web interface (default: PYMPL2 Python3 API)
 
 ## API Endpoints
 

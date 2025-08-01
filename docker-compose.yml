@@ -7,7 +7,7 @@ services:
       - "8000:8000"
     volumes:
       - ./app:/app/app
-      - ./PYMPL2-PYTHON3_API_DOCUMENTATION:/app/docs
+      - ${DOCS_DIR}:/app/docs
       - ./scripts:/app/scripts
       - ./vector_db:/app/vector_db
     environment:
@@ -17,4 +17,5 @@ services:
       - DOCS_DIR=/app/docs
       - VECTOR_DB_PATH=/app/vector_db
       - SKIP_VECTORIZATION=false
+      - API_TITLE=${API_TITLE:-API}
     restart: unless-stopped
