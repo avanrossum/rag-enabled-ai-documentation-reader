@@ -90,10 +90,15 @@ document.addEventListener('DOMContentLoaded', () => {
             const sourceFile = metadata.source || 'Unknown source';
             const headerContext = metadata.header_context || '';
             
+            // Create a link to the Markdown file
+            const sourceLink = sourceFile ?
+                `<a href="/docs/${encodeURIComponent(sourceFile)}" target="_blank" class="source-link">Source ${index + 1}: ${sourceFile}</a>` :
+                `<span>Source ${index + 1}: Unknown source</span>`;
+            
             return `
                 <div class="source">
                     <div class="source-header">
-                        <span>Source ${index + 1}: ${sourceFile}</span>
+                        <span>${sourceLink}</span>
                         <span>Relevance: ${Math.round((1 - source.score) * 100)}%</span>
                     </div>
                     ${headerContext ? `<div class="source-context">${headerContext}</div>` : ''}
