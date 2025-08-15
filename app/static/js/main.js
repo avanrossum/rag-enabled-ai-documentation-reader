@@ -89,11 +89,25 @@ document.addEventListener('DOMContentLoaded', () => {
             const metadata = source.metadata || {};
             const sourceFile = metadata.source || 'Unknown source';
             const headerContext = metadata.header_context || '';
+            const codeContext = metadata.code_context || '';
+            const fileType = metadata.file_type || '';
             
-            // Create a link to the Markdown file
+            // Create a link to the file
             const sourceLink = sourceFile ?
                 `<a href="/docs/${encodeURIComponent(sourceFile)}" target="_blank" class="source-link">Source ${index + 1}: ${sourceFile}</a>` :
                 `<span>Source ${index + 1}: Unknown source</span>`;
+            
+            // Build context information
+            let contextInfo = '';
+            if (headerContext) {
+                contextInfo += `<div class="source-context">${headerContext}</div>`;
+            }
+            if (codeContext) {
+                contextInfo += `<div class="source-context code-context">${codeContext}</div>`;
+            }
+            if (fileType && fileType !== 'text') {
+                contextInfo += `<div class="source-context file-type">File type: ${fileType}</div>`;
+            }
             
             return `
                 <div class="source">
@@ -101,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <span>${sourceLink}</span>
                         <span>Relevance: ${Math.round((1 - source.score) * 100)}%</span>
                     </div>
-                    ${headerContext ? `<div class="source-context">${headerContext}</div>` : ''}
+                    ${contextInfo}
                     <div class="source-content">${source.content}</div>
                 </div>
             `;

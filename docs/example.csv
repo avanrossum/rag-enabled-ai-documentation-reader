@@ -1,0 +1,11 @@
+File Type,Extension,Description,Example
+Markdown,.md,Documentation files,README.md
+Python,.py,Python source code,main.py
+JavaScript,.js,JavaScript source code,app.js
+TypeScript,.ts,TypeScript source code,types.ts
+JSON,.json,Data interchange format,config.json
+YAML,.yml,Configuration files,docker-compose.yml
+CSV,.csv,Comma-separated values,data.csv
+SQL,.sql,Database queries,schema.sql
+HTML,.html,Web pages,index.html
+CSS,.css,Stylesheets,styles.css

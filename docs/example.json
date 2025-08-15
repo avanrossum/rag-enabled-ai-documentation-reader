@@ -1,0 +1,27 @@
+{
+  "name": "API Documentation Assistant",
+  "version": "1.0.0",
+  "description": "A RAG-powered API documentation assistant",
+  "features": [
+    "Multi-file type support",
+    "Code syntax highlighting",
+    "Vector search",
+    "Natural language queries"
+  ],
+  "supported_file_types": {
+    "markdown": [".md", ".markdown"],
+    "python": [".py"],
+    "javascript": [".js", ".jsx"],
+    "typescript": [".ts", ".tsx"],
+    "json": [".json"],
+    "yaml": [".yaml", ".yml"],
+    "csv": [".csv"],
+    "sql": [".sql"]
+  },
+  "configuration": {
+    "embedding_model": "text-embedding-3-small",
+    "completion_model": "gpt-4o",
+    "chunk_size": 1000,
+    "chunk_overlap": 200
+  }
+}

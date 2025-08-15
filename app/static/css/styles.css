@@ -176,6 +176,24 @@ button:hover {
     font-style: italic;
 }
 
+.source-context.code-context {
+    background-color: #e3f2fd;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    border-left: 3px solid #2196f3;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-style: normal;
+}
+
+.source-context.file-type {
+    background-color: #f3e5f5;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    border-left: 3px solid #9c27b0;
+    font-style: normal;
+    font-weight: 500;
+}
+
 /* Footer */
 footer {
     text-align: center;
